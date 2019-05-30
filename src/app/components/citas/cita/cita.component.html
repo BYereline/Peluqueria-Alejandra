@@ -1,0 +1,43 @@
+<br><br><br>
+<div class="card border-success mb-3 mt-50 ml-20" style="max-width: 22rem;">
+  <div class="card-header bg-transparent border-success"><h5 style="color:brown">Agendar Cita</h5></div>
+   
+  <form #citaForm="ngForm" (ngSubmit)="agendar(citaForm)">
+
+      <input type="hidden" name="skey" #skey="ngModel" [(ngModel)]="citaService.selectedCita.skey">
+
+  <div class="form-group card-body text-success">
+        <p class="card-text"> Seleccionar con quien quiere cita Estilista/Manicurista</p>
+        <select required class="form-control" 
+        name="motivo" 
+        #motivo="ngModel"
+        [(ngModel)]="citaService.selectedCita.motivo">
+        <option value="" disabled selected="selected">seleccione opcion</option>
+          <option value="Estilista">Estilista</option>
+          <option value="Manicurista">Manicurista</option>
+        </select>
+
+        <p class="card-text">
+          Seleccionar fecha de cita
+          <input style="color:gray"
+          type="datetime-local" 
+          value="2019-05-16T12:30"
+          name="fecha"
+          #fecha="ngModel"
+          [(ngModel)]="citaService.selectedCita.fecha"
+          >
+          <br> <br> <br>
+          <textarea 
+          name="trabajo"
+          #trabajo="ngModel"
+          [(ngModel)]="citaService.selectedCita.trabajo"  
+          cols="30" rows="10" placeholder="Ingresar motivo de cita"></textarea>
+        </p>
+
+    </div>
+
+    <div class="form-group card-footer bg-transparent border-success text-center">
+        <button type="submit" class="btn btn-outline-success">Agendar</button>
+    </div>
+    </form>
+</div>

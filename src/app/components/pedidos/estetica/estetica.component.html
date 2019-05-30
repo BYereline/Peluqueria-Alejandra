@@ -1,0 +1,47 @@
+<!-- ********************************** -->
+<div class="card mt-5">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Pedidos (pendientes)</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor = "let pedido of pedidos_P">
+          <td>{{pedido.fecha}}</td>
+          <td>{{pedido.total}}</td>
+          <td>{{pedido.productos}}</td>
+          <td> 
+            <a class="btn btn-success text-white" (click)="onAcept(pedido.skey_ped)">
+                <i class="far fa-calendar-check"></i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-danger text-white" >
+                <i class="far fa-calendar-times"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- *********************************************** -->
+<div class="card mt-5">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Pedidos (Aceptados)</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor = "let pedido of pedidos_A">
+          <td>{{pedido.fecha}}</td>
+          <td>{{pedido.total}}</td>
+          <td> 
+            <a class="btn btn-warning text-white" >
+                <i class="fas fa-hourglass-end"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <!-- ************* -->

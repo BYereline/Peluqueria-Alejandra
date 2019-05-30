@@ -1,0 +1,81 @@
+<div class="mt-5 ml-5 mr-5 text-center">
+  <div class="card"> 
+    <div class="card-body">
+      <h5 class="card-title">Carrito</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Lista de productos agregados a carrito</h6>
+
+      <input type="hidden" name="skey" #skey="ngModel" [(ngModel)]="carritoService.selectedCarrito.skey">
+      
+      <!-- FORMATO DE CADA PRODUCTO -->
+      <div *ngFor = "let product of productosCarro; let i=index" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="https://http2.mlstatic.com/S_746801-MLA25960078758_092017-O.jpg" class="card-img" 
+              height="100px" width="200px">
+            </div>
+
+            <div class="col-md-10 text-left">
+              
+              <div class="col-md-6" style="display: inline-block">
+
+                  <div class="col-md-10" style="display: inline-block">
+                    <div class="card-body text-left" style="display: inline-block">
+                      <h5 class="card-title">{{product.name}}</h5>  
+                      <p class="card-text">{{product.descripcion}} </p>                
+                    </div>
+                  </div>
+
+                    <div class="col-md-2" style="display: inline-block">
+                      <p class="card-text" style="display: inline-block"> c/u: ${{product.precio}}</p>
+                    </div>
+                  
+              </div>
+
+              <div class="col-md-4" style="display: inline-block">
+                    <div class="col-md-10" style="display: inline-block">
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <button class="input-group-text" type="button" (click)="restar(product.skey)">&nbsp;<i class="fas fa-minus"></i></button>
+                            </div>
+                            <input type="text"
+                            class="form-control text-center"
+                            disabled
+                            placeholder="{{cantidades[i]}}"
+                            maxlength="4" size="4"
+                            >
+                            <div class="input-group-prepend">
+                              <button class="input-group-text" type="button" (click)="sumar(product.skey)">&nbsp;<i class="fas fa-plus"></i></button>
+                            </div>
+                          </div>
+                    </div>
+
+                    <div class="col-md-2" style="display: inline-block">
+                        <p class="card-text" style="display: inline-block"> Total: $ {{totales[i]}} </p>
+                    </div>
+                                   
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      <!--  **************  -->
+
+     <div class="col-md-8 text-left" style="display: inline-block">
+       <div class="col-md-6 text-right" style="display: inline-block">
+        <h5>TOTAL:</h5>
+       </div>
+       <div class="col-md-6" style="display: inline-block">
+          <h5>$ {{totalCarrito}}</h5>
+       </div>
+       <hr>
+     </div>
+     <div class="col-md-4" style="display: inline-block">
+        <button type="button" class="btn btn-outline-info" style="display: block" (click)="hacerPedido()">Hacer pedido</button>
+     </div>
+
+    </div>
+  </div>
+
+
+</div>

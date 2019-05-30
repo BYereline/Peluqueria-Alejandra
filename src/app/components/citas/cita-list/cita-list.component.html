@@ -1,0 +1,130 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Citas</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor = "let cita of citaList">
+          <td>{{cita.user}}</td>
+          <td>{{cita.motivo}}</td>
+          <td>{{cita.fecha}}</td>
+          <td>{{cita.hora}}</td>
+          <td>{{cita.trabajo}}</td>
+          <td> 
+            <a class="btn btn-secondary text-white" (click)="onEdit(cita)">
+              <i class="far fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-danger text-white" (click)="onDelete(cita)">
+              <i class="fas fa-trash-alt"></i> 
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- ********************************** -->
+<div class="card mt-5">
+    <div class="card-body">
+      <h6 class="text-center">Lista de Citas Estilista (pendientes)</h6>
+      <table class="table table-sm table-hover">
+        <tbody>
+          <tr *ngFor = "let cita of citaEst">
+            <td>{{cita.user}}</td>
+            <td>{{cita.motivo}}</td>
+            <td>{{cita.fecha}}</td>
+            <td>{{cita.hora}}</td>
+            <td>{{cita.trabajo}}</td>
+            <td> 
+              <a class="btn btn-success text-white" (click)="onAcept(cita)">
+                  <i class="far fa-calendar-check"></i>
+              </a>
+            </td>
+            <td>
+              <a class="btn btn-danger text-white" (click)="onCancel(cita)">
+                  <i class="far fa-calendar-times"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<!-- *********************************************** -->
+  <div class="card mt-5">
+      <div class="card-body">
+        <h6 class="text-center">Lista de Citas Manicurista  (pendientes)</h6>
+        <table class="table table-sm table-hover">
+          <tbody>
+            <tr *ngFor = "let cita of citaMan">
+              <td>{{cita.user}}</td>
+              <td>{{cita.motivo}}</td>
+              <td>{{cita.fecha}}</td>
+              <td>{{cita.hora}}</td>
+              <td>{{cita.trabajo}}</td>
+              <td> 
+                <a class="btn btn-success text-white" (click)="onAcept(cita)">
+                    <i class="far fa-calendar-check"></i>
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-danger text-white" (click)="onCancel(cita)">
+                    <i class="far fa-calendar-times"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ************* -->
+
+    <div class="card mt-5">
+        <div class="card-body">
+          <h6 class="text-center">Lista de Citas Estilista (Aceptadas)</h6>
+          <table class="table table-sm table-hover">
+            <tbody>
+              <tr *ngFor = "let cita of citaEstA">
+                <td>{{cita.user}}</td>
+                <td>{{cita.motivo}}</td>
+                <td>{{cita.fecha}}</td>
+                <td>{{cita.hora}}</td>
+                <td>{{cita.trabajo}}</td>
+                <td> 
+                  <a class="btn btn-warning text-white" (click)="onEnd(cita)">
+                      <i class="fas fa-hourglass-end"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    <!-- *********************************************** -->
+      <div class="card mt-5">
+          <div class="card-body">
+            <h6 class="text-center">Lista de Citas Manicurista  (Aceptadas)</h6>
+            <table class="table table-sm table-hover">
+              <tbody>
+                <tr *ngFor = "let cita of citaManA">
+                  <td>{{cita.user}}</td>
+                  <td>{{cita.motivo}}</td>
+                  <td>{{cita.fecha}}</td>
+                  <td>{{cita.hora}}</td>
+                  <td>{{cita.trabajo}}</td>
+                  <td> 
+                    <a class="btn btn-warning text-white" (click)="onEnd(cita)">
+                        <i class="fas fa-hourglass-end"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    
+        <!-- ************************ -->

@@ -1,0 +1,98 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+      
+      <input type="hidden" name="skey" #skey="ngModel" [(ngModel)]="productService.selectedProduct.skey">
+ 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon"><i class="far fa-image"></i></div>
+          </div>
+        <input type="file" accept=" png jpg"
+        (change)="onUpload($event)"
+        class="form-control"
+        name="image"
+        #name="ngModel"
+        [(ngModel)]="productService.selectedProduct.image"
+        > 
+        <input class="form-group " id="txtImagen" type="hidden" [value]="urlImage | async">
+      </div>
+
+      <div class=" form-group progress">
+        <div class="progress-bar progress-bar-striped bg-succes" 
+        role="progressbar"
+         [style.width]="(uploadPercent | async) + '%'"
+         >
+        </div>
+      </div> <br> 
+
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-thumbtack"></i></div>
+          </div>
+        <input type="text"
+        class="form-control"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="productService.selectedProduct.name"
+        placeholder="Nombre de producto"
+        >
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-align-left"></i></div>
+        </div>
+        <textarea
+        class="form-control"
+        name="descripcion"
+        #descripcion="ngModel"
+        [(ngModel)]="productService.selectedProduct.descripcion"
+        placeholder="Descripcion del producto"
+        ></textarea>
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-tag"></i></div>
+        </div>
+        <input type="text"
+        class="form-control"
+        name="categoria"
+        #categoria="ngModel"
+        [(ngModel)]="productService.selectedProduct.categoria"
+        placeholder="Categoria del producto"
+        >
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">&nbsp;<i class="fas fa-dollar-sign"></i></div>
+        </div>
+        <input type="number"
+        class="form-control"
+        name="precio"
+        #precio="ngModel"
+        [(ngModel)]="productService.selectedProduct.precio"
+        placeholder="Precio del producto"
+        >
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary"  type="submit">
+          <i class="fas fa-plus-circle"></i> Agregar
+        </button>
+        <!-- <ng-template #btnDisable>
+          <button class="btn btn-secondary" disabled=true type="submit">
+            <i class="fas fa-plus-circle"></i> Agregar
+          </button>
+        </ng-template> -->
+        <button class="btn btn-secondary" type="reset" (click)="resetForm(productForm)">
+          <i class="fas fa-sync-alt"></i> Limpiar
+        </button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
